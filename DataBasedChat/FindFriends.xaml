@@ -11,7 +11,7 @@
             <StackPanel Margin="10" Orientation="Horizontal">
                 <StackPanel Width="450">
                     <TextBlock FontSize="20" Text="Доступные пользователи:" TextAlignment="Center"/>
-                    <ListView x:Name="listPeople" FontSize="20" Width="450"/>
+                    <ListView x:Name="listPeople" FontSize="20" Width="450" MaxHeight="363"/>
                 </StackPanel>
                
                 <StackPanel Margin="5,0,5,0">

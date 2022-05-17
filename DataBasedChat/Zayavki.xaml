@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataBasedChat"
         mc:Ignorable="d"
-          Title="Заявки в друзья" Height="450" Width="651" ResizeMode="CanMinimize">
+          Title="Заявки в друзья" Height="450" Width="668" ResizeMode="CanMinimize">
     <Grid Background="Gray">
         <Border BorderBrush="White" BorderThickness="1" Margin="5" CornerRadius="5" Background="DarkGray">
             <StackPanel Margin="10" Orientation="Horizontal">
                 <StackPanel Width="450">
                     <TextBlock FontSize="20" Text="Заявления:" TextAlignment="Center"/>
-                    <ListView FontSize="20" Width="450" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                    <ListView FontSize="20" Width="430" MaxHeight="363" />
+
                 </StackPanel>
 
                 <StackPanel Margin="5,0,5,0">

@@ -24,6 +24,7 @@ namespace DataBasedChat
         {
             InitializeComponent();
             User = inToUser;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
