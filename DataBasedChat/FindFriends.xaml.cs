@@ -15,24 +15,28 @@ using System.Windows.Shapes;
 namespace DataBasedChat
 {
     /// <summary>
-    /// Логика взаимодействия для Messenger.xaml
+    /// Логика взаимодействия для FindFriends.xaml
     /// </summary>
-    public partial class Messenger : Window
+    public partial class FindFriends : Window
     {
         private User User;
-        public Messenger(User inToUser)
+        public FindFriends(User user)
         {
             InitializeComponent();
-            User = inToUser;
+            User = user;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Back()
         {
-            FindFriends a = new FindFriends(User);
+            Messenger a = new Messenger(User);
             a.Top = this.Top;
             a.Left = this.Left;
             this.Hide();
             a.Show();
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Back();
         }
     }
 }
