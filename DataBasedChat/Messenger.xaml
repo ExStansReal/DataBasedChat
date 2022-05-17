@@ -11,11 +11,11 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
                 <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <TextBlock Text="Доступные чаты" TextAlignment="Center" FontSize="20"/>
-                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20" MaxHeight="357" MinHeight="357" ></ListView>
+                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20" MaxHeight="357" MinHeight="357" SelectionChanged="Chats_SelectionChanged" ></ListView>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Stretch" Width="430" Margin="5">
                     <StackPanel>
-                        <TextBlock Text="" TextAlignment="Center" FontSize="20"/>
+                        <TextBlock x:Name="WhoIsTalking" Text="" TextAlignment="Center" FontSize="20"/>
                         <ListView x:Name="Chat" Width="410" Margin="10,5,10,10" FontSize="20" MaxHeight="500" MinHeight="307"></ListView>
 
                     </StackPanel>

@@ -128,5 +128,10 @@ namespace DataBasedChat
             this.Hide();
             a.Show();
         }
+
+        private void Chats_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            WhoIsTalking.Text = $"Чат с: {Chats.SelectedItem.ToString()}";
+        }
     }
 }
