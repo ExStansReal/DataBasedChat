@@ -11,15 +11,15 @@
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
                 <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <TextBlock Text="Доступные чаты" TextAlignment="Center" FontSize="20"/>
-                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20" ></ListView>
+                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20" MaxHeight="357" MinHeight="357" ></ListView>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Stretch" Width="430" Margin="5">
                     <StackPanel>
                         <TextBlock Text="" TextAlignment="Center" FontSize="20"/>
-                        <ListView x:Name="Chat" Width="410" Margin="10" FontSize="20" MaxHeight="290" d:ItemsSource="{d:SampleData ItemCount=100}"></ListView>
+                        <ListView x:Name="Chat" Width="410" Margin="10,5,10,10" FontSize="20" MaxHeight="500" MinHeight="307"></ListView>
 
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                         <TextBox Margin="5" Height="30" FontSize="20" MinWidth="400"/>
                         <Button Content=">" Height="30" FontSize="20" BorderBrush="White"/>
                     </StackPanel>

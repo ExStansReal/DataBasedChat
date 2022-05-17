@@ -100,6 +100,7 @@ namespace DataBasedChat
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Timer.Stop();
             Back();
         }
 
