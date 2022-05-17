@@ -14,7 +14,7 @@
                 <TextBlock Text="Пароль"  FontSize="20"/>
                 <PasswordBox x:Name="password" Width="184" Height="30"  FontSize="20"/>
                 <Button Content="Войти" Width="77" Margin="0,5,0,5" BorderBrush="White"  FontSize="20"/>
-                <Button Content="Зарегистрироваться" BorderBrush="White"  FontSize="20"/>
+                <Button Content="Зарегистрироваться" BorderBrush="White"  FontSize="20" Click="Button_Click"/>
             </StackPanel>
         </Border>
     </Grid>

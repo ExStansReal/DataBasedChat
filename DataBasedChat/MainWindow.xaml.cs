@@ -24,5 +24,14 @@ namespace DataBasedChat
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Registration a = new Registration();
+            a.Top = this.Top;
+            a.Left = this.Left;
+            this.Hide();
+            a.Show();
+        }
     }
 }

@@ -30,25 +30,25 @@ namespace DataBasedChat {
         
         private MessedgesDataTable tableMessedges;
         
-        private UsersDataTable tableUsers;
+        private UserDataTable tableUser;
         
         private ZayavkiDataTable tableZayavki;
         
-        private global::System.Data.DataRelation relationFK_Chat_Users;
+        private global::System.Data.DataRelation relationFK_Chat_User;
         
-        private global::System.Data.DataRelation relationFK_Chat_Users1;
+        private global::System.Data.DataRelation relationFK_Chat_User1;
         
-        private global::System.Data.DataRelation relationFK_Friends_Users;
+        private global::System.Data.DataRelation relationFK_Friends_User;
         
-        private global::System.Data.DataRelation relationFK_Friends_Users1;
+        private global::System.Data.DataRelation relationFK_Friends_User1;
         
         private global::System.Data.DataRelation relationFK_Messedges_Chat;
         
-        private global::System.Data.DataRelation relationFK_Messedges_Users;
+        private global::System.Data.DataRelation relationFK_Messedges_User;
         
-        private global::System.Data.DataRelation relationFK_Zayavki_Users;
+        private global::System.Data.DataRelation relationFK_Zayavki_User;
         
-        private global::System.Data.DataRelation relationFK_Zayavki_Users1;
+        private global::System.Data.DataRelation relationFK_Zayavki_User1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -87,8 +87,8 @@ namespace DataBasedChat {
                 if ((ds.Tables["Messedges"] != null)) {
                     base.Tables.Add(new MessedgesDataTable(ds.Tables["Messedges"]));
                 }
-                if ((ds.Tables["Users"] != null)) {
-                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
+                if ((ds.Tables["User"] != null)) {
+                    base.Tables.Add(new UserDataTable(ds.Tables["User"]));
                 }
                 if ((ds.Tables["Zayavki"] != null)) {
                     base.Tables.Add(new ZayavkiDataTable(ds.Tables["Zayavki"]));
@@ -145,9 +145,9 @@ namespace DataBasedChat {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public UsersDataTable Users {
+        public UserDataTable User {
             get {
-                return this.tableUsers;
+                return this.tableUser;
             }
         }
         
@@ -237,8 +237,8 @@ namespace DataBasedChat {
                 if ((ds.Tables["Messedges"] != null)) {
                     base.Tables.Add(new MessedgesDataTable(ds.Tables["Messedges"]));
                 }
-                if ((ds.Tables["Users"] != null)) {
-                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
+                if ((ds.Tables["User"] != null)) {
+                    base.Tables.Add(new UserDataTable(ds.Tables["User"]));
                 }
                 if ((ds.Tables["Zayavki"] != null)) {
                     base.Tables.Add(new ZayavkiDataTable(ds.Tables["Zayavki"]));
@@ -294,10 +294,10 @@ namespace DataBasedChat {
                     this.tableMessedges.InitVars();
                 }
             }
-            this.tableUsers = ((UsersDataTable)(base.Tables["Users"]));
+            this.tableUser = ((UserDataTable)(base.Tables["User"]));
             if ((initTable == true)) {
-                if ((this.tableUsers != null)) {
-                    this.tableUsers.InitVars();
+                if ((this.tableUser != null)) {
+                    this.tableUser.InitVars();
                 }
             }
             this.tableZayavki = ((ZayavkiDataTable)(base.Tables["Zayavki"]));
@@ -306,14 +306,14 @@ namespace DataBasedChat {
                     this.tableZayavki.InitVars();
                 }
             }
-            this.relationFK_Chat_Users = this.Relations["FK_Chat_Users"];
-            this.relationFK_Chat_Users1 = this.Relations["FK_Chat_Users1"];
-            this.relationFK_Friends_Users = this.Relations["FK_Friends_Users"];
-            this.relationFK_Friends_Users1 = this.Relations["FK_Friends_Users1"];
+            this.relationFK_Chat_User = this.Relations["FK_Chat_User"];
+            this.relationFK_Chat_User1 = this.Relations["FK_Chat_User1"];
+            this.relationFK_Friends_User = this.Relations["FK_Friends_User"];
+            this.relationFK_Friends_User1 = this.Relations["FK_Friends_User1"];
             this.relationFK_Messedges_Chat = this.Relations["FK_Messedges_Chat"];
-            this.relationFK_Messedges_Users = this.Relations["FK_Messedges_Users"];
-            this.relationFK_Zayavki_Users = this.Relations["FK_Zayavki_Users"];
-            this.relationFK_Zayavki_Users1 = this.Relations["FK_Zayavki_Users1"];
+            this.relationFK_Messedges_User = this.Relations["FK_Messedges_User"];
+            this.relationFK_Zayavki_User = this.Relations["FK_Zayavki_User"];
+            this.relationFK_Zayavki_User1 = this.Relations["FK_Zayavki_User1"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -330,42 +330,42 @@ namespace DataBasedChat {
             base.Tables.Add(this.tableFriends);
             this.tableMessedges = new MessedgesDataTable();
             base.Tables.Add(this.tableMessedges);
-            this.tableUsers = new UsersDataTable();
-            base.Tables.Add(this.tableUsers);
+            this.tableUser = new UserDataTable();
+            base.Tables.Add(this.tableUser);
             this.tableZayavki = new ZayavkiDataTable();
             base.Tables.Add(this.tableZayavki);
-            this.relationFK_Chat_Users = new global::System.Data.DataRelation("FK_Chat_Users", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.relationFK_Chat_User = new global::System.Data.DataRelation("FK_Chat_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableChat.User_ID_FirstColumn}, false);
-            this.Relations.Add(this.relationFK_Chat_Users);
-            this.relationFK_Chat_Users1 = new global::System.Data.DataRelation("FK_Chat_Users1", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Chat_User);
+            this.relationFK_Chat_User1 = new global::System.Data.DataRelation("FK_Chat_User1", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableChat.User_ID_SecondColumn}, false);
-            this.Relations.Add(this.relationFK_Chat_Users1);
-            this.relationFK_Friends_Users = new global::System.Data.DataRelation("FK_Friends_Users", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Chat_User1);
+            this.relationFK_Friends_User = new global::System.Data.DataRelation("FK_Friends_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableFriends.User_ID_user_in_friendshipColumn}, false);
-            this.Relations.Add(this.relationFK_Friends_Users);
-            this.relationFK_Friends_Users1 = new global::System.Data.DataRelation("FK_Friends_Users1", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Friends_User);
+            this.relationFK_Friends_User1 = new global::System.Data.DataRelation("FK_Friends_User1", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableFriends.User_ID_who_have_itColumn}, false);
-            this.Relations.Add(this.relationFK_Friends_Users1);
+            this.Relations.Add(this.relationFK_Friends_User1);
             this.relationFK_Messedges_Chat = new global::System.Data.DataRelation("FK_Messedges_Chat", new global::System.Data.DataColumn[] {
                         this.tableChat.ID_ChatColumn}, new global::System.Data.DataColumn[] {
                         this.tableMessedges.Chat_IDColumn}, false);
             this.Relations.Add(this.relationFK_Messedges_Chat);
-            this.relationFK_Messedges_Users = new global::System.Data.DataRelation("FK_Messedges_Users", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.relationFK_Messedges_User = new global::System.Data.DataRelation("FK_Messedges_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableMessedges.User_IDColumn}, false);
-            this.Relations.Add(this.relationFK_Messedges_Users);
-            this.relationFK_Zayavki_Users = new global::System.Data.DataRelation("FK_Zayavki_Users", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Messedges_User);
+            this.relationFK_Zayavki_User = new global::System.Data.DataRelation("FK_Zayavki_User", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableZayavki.User_ID_FromColumn}, false);
-            this.Relations.Add(this.relationFK_Zayavki_Users);
-            this.relationFK_Zayavki_Users1 = new global::System.Data.DataRelation("FK_Zayavki_Users1", new global::System.Data.DataColumn[] {
-                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK_Zayavki_User);
+            this.relationFK_Zayavki_User1 = new global::System.Data.DataRelation("FK_Zayavki_User1", new global::System.Data.DataColumn[] {
+                        this.tableUser.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableZayavki.User_ID_ToColumn}, false);
-            this.Relations.Add(this.relationFK_Zayavki_Users1);
+            this.Relations.Add(this.relationFK_Zayavki_User1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -388,7 +388,7 @@ namespace DataBasedChat {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializeUsers() {
+        private bool ShouldSerializeUser() {
             return false;
         }
         
@@ -463,7 +463,7 @@ namespace DataBasedChat {
         public delegate void MessedgesRowChangeEventHandler(object sender, MessedgesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void UsersRowChangeEventHandler(object sender, UsersRowChangeEvent e);
+        public delegate void UserRowChangeEventHandler(object sender, UserRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void ZayavkiRowChangeEventHandler(object sender, ZayavkiRowChangeEvent e);
@@ -575,17 +575,17 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChatRow AddChatRow(UsersRow parentUsersRowByFK_Chat_Users, UsersRow parentUsersRowByFK_Chat_Users1) {
+            public ChatRow AddChatRow(UserRow parentUserRowByFK_Chat_User, UserRow parentUserRowByFK_Chat_User1) {
                 ChatRow rowChatRow = ((ChatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null};
-                if ((parentUsersRowByFK_Chat_Users != null)) {
-                    columnValuesArray[1] = parentUsersRowByFK_Chat_Users[0];
+                if ((parentUserRowByFK_Chat_User != null)) {
+                    columnValuesArray[1] = parentUserRowByFK_Chat_User[0];
                 }
-                if ((parentUsersRowByFK_Chat_Users1 != null)) {
-                    columnValuesArray[2] = parentUsersRowByFK_Chat_Users1[0];
+                if ((parentUserRowByFK_Chat_User1 != null)) {
+                    columnValuesArray[2] = parentUserRowByFK_Chat_User1[0];
                 }
                 rowChatRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowChatRow);
@@ -873,17 +873,17 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FriendsRow AddFriendsRow(UsersRow parentUsersRowByFK_Friends_Users1, UsersRow parentUsersRowByFK_Friends_Users) {
+            public FriendsRow AddFriendsRow(UserRow parentUserRowByFK_Friends_User1, UserRow parentUserRowByFK_Friends_User) {
                 FriendsRow rowFriendsRow = ((FriendsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null};
-                if ((parentUsersRowByFK_Friends_Users1 != null)) {
-                    columnValuesArray[1] = parentUsersRowByFK_Friends_Users1[0];
+                if ((parentUserRowByFK_Friends_User1 != null)) {
+                    columnValuesArray[1] = parentUserRowByFK_Friends_User1[0];
                 }
-                if ((parentUsersRowByFK_Friends_Users != null)) {
-                    columnValuesArray[2] = parentUsersRowByFK_Friends_Users[0];
+                if ((parentUserRowByFK_Friends_User != null)) {
+                    columnValuesArray[2] = parentUserRowByFK_Friends_User[0];
                 }
                 rowFriendsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowFriendsRow);
@@ -1191,7 +1191,7 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public MessedgesRow AddMessedgesRow(System.TimeSpan Time, UsersRow parentUsersRowByFK_Messedges_Users, string Messedge, ChatRow parentChatRowByFK_Messedges_Chat) {
+            public MessedgesRow AddMessedgesRow(System.TimeSpan Time, UserRow parentUserRowByFK_Messedges_User, string Messedge, ChatRow parentChatRowByFK_Messedges_Chat) {
                 MessedgesRow rowMessedgesRow = ((MessedgesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1199,8 +1199,8 @@ namespace DataBasedChat {
                         null,
                         Messedge,
                         null};
-                if ((parentUsersRowByFK_Messedges_Users != null)) {
-                    columnValuesArray[2] = parentUsersRowByFK_Messedges_Users[0];
+                if ((parentUserRowByFK_Messedges_User != null)) {
+                    columnValuesArray[2] = parentUserRowByFK_Messedges_User[0];
                 }
                 if ((parentChatRowByFK_Messedges_Chat != null)) {
                     columnValuesArray[4] = parentChatRowByFK_Messedges_Chat[0];
@@ -1398,7 +1398,7 @@ namespace DataBasedChat {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class UsersDataTable : global::System.Data.TypedTableBase<UsersRow> {
+        public partial class UserDataTable : global::System.Data.TypedTableBase<UserRow> {
             
             private global::System.Data.DataColumn columnID_User;
             
@@ -1414,8 +1414,8 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersDataTable() {
-                this.TableName = "Users";
+            public UserDataTable() {
+                this.TableName = "User";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -1423,7 +1423,7 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal UsersDataTable(global::System.Data.DataTable table) {
+            internal UserDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1440,7 +1440,7 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected UsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected UserDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -1504,34 +1504,34 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow this[int index] {
+            public UserRow this[int index] {
                 get {
-                    return ((UsersRow)(this.Rows[index]));
+                    return ((UserRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowChanging;
+            public event UserRowChangeEventHandler UserRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowChanged;
+            public event UserRowChangeEventHandler UserRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowDeleting;
+            public event UserRowChangeEventHandler UserRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowDeleted;
+            public event UserRowChangeEventHandler UserRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddUsersRow(UsersRow row) {
+            public void AddUserRow(UserRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow AddUsersRow(string Familiya, string Ima, string Otchestvo, string Login, string Password) {
-                UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
+            public UserRow AddUserRow(string Familiya, string Ima, string Otchestvo, string Login, string Password) {
+                UserRow rowUserRow = ((UserRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Familiya,
@@ -1539,22 +1539,22 @@ namespace DataBasedChat {
                         Otchestvo,
                         Login,
                         Password};
-                rowUsersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowUsersRow);
-                return rowUsersRow;
+                rowUserRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowUserRow);
+                return rowUserRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow FindByID_User(int ID_User) {
-                return ((UsersRow)(this.Rows.Find(new object[] {
+            public UserRow FindByID_User(int ID_User) {
+                return ((UserRow)(this.Rows.Find(new object[] {
                             ID_User})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                UsersDataTable cln = ((UsersDataTable)(base.Clone()));
+                UserDataTable cln = ((UserDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -1562,7 +1562,7 @@ namespace DataBasedChat {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new UsersDataTable();
+                return new UserDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1603,7 +1603,6 @@ namespace DataBasedChat {
                 this.columnFamiliya.MaxLength = 50;
                 this.columnIma.AllowDBNull = false;
                 this.columnIma.MaxLength = 50;
-                this.columnOtchestvo.AllowDBNull = false;
                 this.columnOtchestvo.MaxLength = 50;
                 this.columnLogin.AllowDBNull = false;
                 this.columnLogin.MaxLength = 50;
@@ -1613,28 +1612,28 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow NewUsersRow() {
-                return ((UsersRow)(this.NewRow()));
+            public UserRow NewUserRow() {
+                return ((UserRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new UsersRow(builder);
+                return new UserRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(UsersRow);
+                return typeof(UserRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.UsersRowChanged != null)) {
-                    this.UsersRowChanged(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.UserRowChanged != null)) {
+                    this.UserRowChanged(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1642,8 +1641,8 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.UsersRowChanging != null)) {
-                    this.UsersRowChanging(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.UserRowChanging != null)) {
+                    this.UserRowChanging(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1651,8 +1650,8 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.UsersRowDeleted != null)) {
-                    this.UsersRowDeleted(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.UserRowDeleted != null)) {
+                    this.UserRowDeleted(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
@@ -1660,14 +1659,14 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.UsersRowDeleting != null)) {
-                    this.UsersRowDeleting(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.UserRowDeleting != null)) {
+                    this.UserRowDeleting(this, new UserRowChangeEvent(((UserRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemoveUsersRow(UsersRow row) {
+            public void RemoveUserRow(UserRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -1694,7 +1693,7 @@ namespace DataBasedChat {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "UsersDataTable";
+                attribute2.FixedValue = "UserDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1852,18 +1851,18 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ZayavkiRow AddZayavkiRow(UsersRow parentUsersRowByFK_Zayavki_Users, UsersRow parentUsersRowByFK_Zayavki_Users1, System.DateTime Date) {
+            public ZayavkiRow AddZayavkiRow(UserRow parentUserRowByFK_Zayavki_User, UserRow parentUserRowByFK_Zayavki_User1, System.DateTime Date) {
                 ZayavkiRow rowZayavkiRow = ((ZayavkiRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         Date};
-                if ((parentUsersRowByFK_Zayavki_Users != null)) {
-                    columnValuesArray[1] = parentUsersRowByFK_Zayavki_Users[0];
+                if ((parentUserRowByFK_Zayavki_User != null)) {
+                    columnValuesArray[1] = parentUserRowByFK_Zayavki_User[0];
                 }
-                if ((parentUsersRowByFK_Zayavki_Users1 != null)) {
-                    columnValuesArray[2] = parentUsersRowByFK_Zayavki_Users1[0];
+                if ((parentUserRowByFK_Zayavki_User1 != null)) {
+                    columnValuesArray[2] = parentUserRowByFK_Zayavki_User1[0];
                 }
                 rowZayavkiRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowZayavkiRow);
@@ -2097,23 +2096,23 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Chat_Users {
+            public UserRow UserRowByFK_Chat_User {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Chat_Users"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Chat_User"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Chat_Users"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Chat_User"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Chat_Users1 {
+            public UserRow UserRowByFK_Chat_User1 {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Chat_Users1"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Chat_User1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Chat_Users1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Chat_User1"]);
                 }
             }
             
@@ -2178,23 +2177,23 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Friends_Users {
+            public UserRow UserRowByFK_Friends_User {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Friends_Users"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Friends_User"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Friends_Users"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Friends_User"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Friends_Users1 {
+            public UserRow UserRowByFK_Friends_User1 {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Friends_Users1"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Friends_User1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Friends_Users1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Friends_User1"]);
                 }
             }
         }
@@ -2281,12 +2280,12 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRow {
+            public UserRow UserRow {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Messedges_Users"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Messedges_User"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Messedges_Users"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Messedges_User"]);
                 }
             }
         }
@@ -2294,25 +2293,25 @@ namespace DataBasedChat {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class UsersRow : global::System.Data.DataRow {
+        public partial class UserRow : global::System.Data.DataRow {
             
-            private UsersDataTable tableUsers;
+            private UserDataTable tableUser;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal UsersRow(global::System.Data.DataRowBuilder rb) : 
+            internal UserRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableUsers = ((UsersDataTable)(this.Table));
+                this.tableUser = ((UserDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int ID_User {
                 get {
-                    return ((int)(this[this.tableUsers.ID_UserColumn]));
+                    return ((int)(this[this.tableUser.ID_UserColumn]));
                 }
                 set {
-                    this[this.tableUsers.ID_UserColumn] = value;
+                    this[this.tableUser.ID_UserColumn] = value;
                 }
             }
             
@@ -2320,10 +2319,10 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Familiya {
                 get {
-                    return ((string)(this[this.tableUsers.FamiliyaColumn]));
+                    return ((string)(this[this.tableUser.FamiliyaColumn]));
                 }
                 set {
-                    this[this.tableUsers.FamiliyaColumn] = value;
+                    this[this.tableUser.FamiliyaColumn] = value;
                 }
             }
             
@@ -2331,10 +2330,10 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Ima {
                 get {
-                    return ((string)(this[this.tableUsers.ImaColumn]));
+                    return ((string)(this[this.tableUser.ImaColumn]));
                 }
                 set {
-                    this[this.tableUsers.ImaColumn] = value;
+                    this[this.tableUser.ImaColumn] = value;
                 }
             }
             
@@ -2342,10 +2341,15 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Otchestvo {
                 get {
-                    return ((string)(this[this.tableUsers.OtchestvoColumn]));
+                    try {
+                        return ((string)(this[this.tableUser.OtchestvoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'Otchestvo\' в таблице \'User\' равно DBNull.", e);
+                    }
                 }
                 set {
-                    this[this.tableUsers.OtchestvoColumn] = value;
+                    this[this.tableUser.OtchestvoColumn] = value;
                 }
             }
             
@@ -2353,10 +2357,10 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Login {
                 get {
-                    return ((string)(this[this.tableUsers.LoginColumn]));
+                    return ((string)(this[this.tableUser.LoginColumn]));
                 }
                 set {
-                    this[this.tableUsers.LoginColumn] = value;
+                    this[this.tableUser.LoginColumn] = value;
                 }
             }
             
@@ -2364,87 +2368,99 @@ namespace DataBasedChat {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string Password {
                 get {
-                    return ((string)(this[this.tableUsers.PasswordColumn]));
+                    return ((string)(this[this.tableUser.PasswordColumn]));
                 }
                 set {
-                    this[this.tableUsers.PasswordColumn] = value;
+                    this[this.tableUser.PasswordColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChatRow[] GetChatRowsByFK_Chat_Users() {
-                if ((this.Table.ChildRelations["FK_Chat_Users"] == null)) {
+            public bool IsOtchestvoNull() {
+                return this.IsNull(this.tableUser.OtchestvoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetOtchestvoNull() {
+                this[this.tableUser.OtchestvoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ChatRow[] GetChatRowsByFK_Chat_User() {
+                if ((this.Table.ChildRelations["FK_Chat_User"] == null)) {
                     return new ChatRow[0];
                 }
                 else {
-                    return ((ChatRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Chat_Users"])));
+                    return ((ChatRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Chat_User"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ChatRow[] GetChatRowsByFK_Chat_Users1() {
-                if ((this.Table.ChildRelations["FK_Chat_Users1"] == null)) {
+            public ChatRow[] GetChatRowsByFK_Chat_User1() {
+                if ((this.Table.ChildRelations["FK_Chat_User1"] == null)) {
                     return new ChatRow[0];
                 }
                 else {
-                    return ((ChatRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Chat_Users1"])));
+                    return ((ChatRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Chat_User1"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FriendsRow[] GetFriendsRowsByFK_Friends_Users() {
-                if ((this.Table.ChildRelations["FK_Friends_Users"] == null)) {
+            public FriendsRow[] GetFriendsRowsByFK_Friends_User() {
+                if ((this.Table.ChildRelations["FK_Friends_User"] == null)) {
                     return new FriendsRow[0];
                 }
                 else {
-                    return ((FriendsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Friends_Users"])));
+                    return ((FriendsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Friends_User"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public FriendsRow[] GetFriendsRowsByFK_Friends_Users1() {
-                if ((this.Table.ChildRelations["FK_Friends_Users1"] == null)) {
+            public FriendsRow[] GetFriendsRowsByFK_Friends_User1() {
+                if ((this.Table.ChildRelations["FK_Friends_User1"] == null)) {
                     return new FriendsRow[0];
                 }
                 else {
-                    return ((FriendsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Friends_Users1"])));
+                    return ((FriendsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Friends_User1"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public MessedgesRow[] GetMessedgesRows() {
-                if ((this.Table.ChildRelations["FK_Messedges_Users"] == null)) {
+                if ((this.Table.ChildRelations["FK_Messedges_User"] == null)) {
                     return new MessedgesRow[0];
                 }
                 else {
-                    return ((MessedgesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Messedges_Users"])));
+                    return ((MessedgesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Messedges_User"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ZayavkiRow[] GetZayavkiRowsByFK_Zayavki_Users() {
-                if ((this.Table.ChildRelations["FK_Zayavki_Users"] == null)) {
+            public ZayavkiRow[] GetZayavkiRowsByFK_Zayavki_User() {
+                if ((this.Table.ChildRelations["FK_Zayavki_User"] == null)) {
                     return new ZayavkiRow[0];
                 }
                 else {
-                    return ((ZayavkiRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Zayavki_Users"])));
+                    return ((ZayavkiRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Zayavki_User"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public ZayavkiRow[] GetZayavkiRowsByFK_Zayavki_Users1() {
-                if ((this.Table.ChildRelations["FK_Zayavki_Users1"] == null)) {
+            public ZayavkiRow[] GetZayavkiRowsByFK_Zayavki_User1() {
+                if ((this.Table.ChildRelations["FK_Zayavki_User1"] == null)) {
                     return new ZayavkiRow[0];
                 }
                 else {
-                    return ((ZayavkiRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Zayavki_Users1"])));
+                    return ((ZayavkiRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Zayavki_User1"])));
                 }
             }
         }
@@ -2509,23 +2525,23 @@ namespace DataBasedChat {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Zayavki_Users {
+            public UserRow UserRowByFK_Zayavki_User {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Zayavki_Users"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Zayavki_User"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Zayavki_Users"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Zayavki_User"]);
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow UsersRowByFK_Zayavki_Users1 {
+            public UserRow UserRowByFK_Zayavki_User1 {
                 get {
-                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Zayavki_Users1"])));
+                    return ((UserRow)(this.GetParentRow(this.Table.ParentRelations["FK_Zayavki_User1"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_Zayavki_Users1"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Zayavki_User1"]);
                 }
             }
         }
@@ -2636,22 +2652,22 @@ namespace DataBasedChat {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class UsersRowChangeEvent : global::System.EventArgs {
+        public class UserRowChangeEvent : global::System.EventArgs {
             
-            private UsersRow eventRow;
+            private UserRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRowChangeEvent(UsersRow row, global::System.Data.DataRowAction action) {
+            public UserRowChangeEvent(UserRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public UsersRow Row {
+            public UserRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -3675,7 +3691,7 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class UsersTableAdapter : global::System.ComponentModel.Component {
+    public partial class UserTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -3689,7 +3705,7 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public UsersTableAdapter() {
+        public UserTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -3786,7 +3802,7 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Users";
+            tableMapping.DataSetTable = "User";
             tableMapping.ColumnMappings.Add("ID_User", "ID_User");
             tableMapping.ColumnMappings.Add("Familiya", "Familiya");
             tableMapping.ColumnMappings.Add("Ima", "Ima");
@@ -3796,22 +3812,20 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Users] WHERE (([ID_User] = @Original_ID_User) AND ([Familiya] " +
-                "= @Original_Familiya) AND ([Ima] = @Original_Ima) AND ([Otchestvo] = @Original_O" +
-                "tchestvo) AND ([Login] = @Original_Login) AND ([Password] = @Original_Password))" +
-                "";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[User] WHERE (([ID_User] = @Original_ID_User) AND ([Familiya] = @Original_Familiya) AND ([Ima] = @Original_Ima) AND ((@IsNull_Otchestvo = 1 AND [Otchestvo] IS NULL) OR ([Otchestvo] = @Original_Otchestvo)) AND ([Login] = @Original_Login) AND ([Password] = @Original_Password))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_User", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Familiya", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Familiya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ima", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Otchestvo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Otchestvo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Otchestvo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Otchestvo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Users] ([Familiya], [Ima], [Otchestvo], [Login], [Password]) V" +
-                "ALUES (@Familiya, @Ima, @Otchestvo, @Login, @Password);\r\nSELECT ID_User, Familiy" +
-                "a, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_User = SCOPE_IDENTITY())" +
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[User] ([Familiya], [Ima], [Otchestvo], [Login], [Password]) VA" +
+                "LUES (@Familiya, @Ima, @Otchestvo, @Login, @Password);\r\nSELECT ID_User, Familiya" +
+                ", Ima, Otchestvo, Login, Password FROM [User] WHERE (ID_User = SCOPE_IDENTITY())" +
                 "";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Familiya", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Familiya", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3821,8 +3835,8 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Users] SET [Familiya] = @Familiya, [Ima] = @Ima, [Otchestvo] = @Otchestvo, [Login] = @Login, [Password] = @Password WHERE (([ID_User] = @Original_ID_User) AND ([Familiya] = @Original_Familiya) AND ([Ima] = @Original_Ima) AND ([Otchestvo] = @Original_Otchestvo) AND ([Login] = @Original_Login) AND ([Password] = @Original_Password));
-SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_User = @ID_User)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[User] SET [Familiya] = @Familiya, [Ima] = @Ima, [Otchestvo] = @Otchestvo, [Login] = @Login, [Password] = @Password WHERE (([ID_User] = @Original_ID_User) AND ([Familiya] = @Original_Familiya) AND ([Ima] = @Original_Ima) AND ((@IsNull_Otchestvo = 1 AND [Otchestvo] IS NULL) OR ([Otchestvo] = @Original_Otchestvo)) AND ([Login] = @Original_Login) AND ([Password] = @Original_Password));
+SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM [User] WHERE (ID_User = @ID_User)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Familiya", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Familiya", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ima", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -3832,6 +3846,7 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_User", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_User", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Familiya", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Familiya", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Ima", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Ima", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Otchestvo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Otchestvo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Otchestvo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Otchestvo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Login", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Login", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Password", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -3848,18 +3863,29 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM dbo.Users";
+            this._commandCollection[0].CommandText = "SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM dbo.[User]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[User] ([Familiya], [Ima], [Otchestvo], [Login], [Password]) VA" +
+                "LUES (@Familiya, @Ima, @Otchestvo, @Login, @Password);\r\nSELECT ID_User, Familiya" +
+                ", Ima, Otchestvo, Login, Password FROM [User] ";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Familiya", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Familiya", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Ima", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Ima", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Otchestvo", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Otchestvo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Login", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Login", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataBasedChatDataSet.UsersDataTable dataTable) {
+        public virtual int Fill(DataBasedChatDataSet.UserDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -3872,9 +3898,9 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataBasedChatDataSet.UsersDataTable GetData() {
+        public virtual DataBasedChatDataSet.UserDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataBasedChatDataSet.UsersDataTable dataTable = new DataBasedChatDataSet.UsersDataTable();
+            DataBasedChatDataSet.UserDataTable dataTable = new DataBasedChatDataSet.UserDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -3882,7 +3908,7 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataBasedChatDataSet.UsersDataTable dataTable) {
+        public virtual int Update(DataBasedChatDataSet.UserDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -3890,7 +3916,7 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(DataBasedChatDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "Users");
+            return this.Adapter.Update(dataSet, "User");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3927,22 +3953,24 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Ima));
             }
             if ((Original_Otchestvo == null)) {
-                throw new global::System.ArgumentNullException("Original_Otchestvo");
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Otchestvo));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Otchestvo));
             }
             if ((Original_Login == null)) {
                 throw new global::System.ArgumentNullException("Original_Login");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_Login));
+                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Login));
             }
             if ((Original_Password == null)) {
                 throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((string)(Original_Password));
+                this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_Password));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -3978,7 +4006,7 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Ima));
             }
             if ((Otchestvo == null)) {
-                throw new global::System.ArgumentNullException("Otchestvo");
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Otchestvo));
@@ -4029,7 +4057,7 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Ima));
             }
             if ((Otchestvo == null)) {
-                throw new global::System.ArgumentNullException("Otchestvo");
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Otchestvo));
@@ -4060,24 +4088,26 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Ima));
             }
             if ((Original_Otchestvo == null)) {
-                throw new global::System.ArgumentNullException("Original_Otchestvo");
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_Otchestvo));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Otchestvo));
             }
             if ((Original_Login == null)) {
                 throw new global::System.ArgumentNullException("Original_Login");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_Login));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Login));
             }
             if ((Original_Password == null)) {
                 throw new global::System.ArgumentNullException("Original_Password");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_Password));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_Password));
             }
-            this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(ID_User));
+            this.Adapter.UpdateCommand.Parameters[12].Value = ((int)(ID_User));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4100,6 +4130,59 @@ SELECT ID_User, Familiya, Ima, Otchestvo, Login, Password FROM Users WHERE (ID_U
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(string Familiya, string Ima, string Otchestvo, string Login, string Password, int Original_ID_User, string Original_Familiya, string Original_Ima, string Original_Otchestvo, string Original_Login, string Original_Password) {
             return this.Update(Familiya, Ima, Otchestvo, Login, Password, Original_ID_User, Original_Familiya, Original_Ima, Original_Otchestvo, Original_Login, Original_Password, Original_ID_User);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string Familiya, string Ima, string Otchestvo, string Login, string Password) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Familiya == null)) {
+                throw new global::System.ArgumentNullException("Familiya");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Familiya));
+            }
+            if ((Ima == null)) {
+                throw new global::System.ArgumentNullException("Ima");
+            }
+            else {
+                command.Parameters[1].Value = ((string)(Ima));
+            }
+            if ((Otchestvo == null)) {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Otchestvo));
+            }
+            if ((Login == null)) {
+                throw new global::System.ArgumentNullException("Login");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(Login));
+            }
+            if ((Password == null)) {
+                throw new global::System.ArgumentNullException("Password");
+            }
+            else {
+                command.Parameters[4].Value = ((string)(Password));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     
@@ -4438,7 +4521,7 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
         
         private MessedgesTableAdapter _messedgesTableAdapter;
         
-        private UsersTableAdapter _usersTableAdapter;
+        private UserTableAdapter _userTableAdapter;
         
         private ZayavkiTableAdapter _zayavkiTableAdapter;
         
@@ -4504,12 +4587,12 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public UsersTableAdapter UsersTableAdapter {
+        public UserTableAdapter UserTableAdapter {
             get {
-                return this._usersTableAdapter;
+                return this._userTableAdapter;
             }
             set {
-                this._usersTableAdapter = value;
+                this._userTableAdapter = value;
             }
         }
         
@@ -4558,9 +4641,9 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                             && (this._messedgesTableAdapter.Connection != null))) {
                     return this._messedgesTableAdapter.Connection;
                 }
-                if (((this._usersTableAdapter != null) 
-                            && (this._usersTableAdapter.Connection != null))) {
-                    return this._usersTableAdapter.Connection;
+                if (((this._userTableAdapter != null) 
+                            && (this._userTableAdapter.Connection != null))) {
+                    return this._userTableAdapter.Connection;
                 }
                 if (((this._zayavkiTableAdapter != null) 
                             && (this._zayavkiTableAdapter.Connection != null))) {
@@ -4588,7 +4671,7 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                 if ((this._messedgesTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._usersTableAdapter != null)) {
+                if ((this._userTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._zayavkiTableAdapter != null)) {
@@ -4605,12 +4688,12 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateUpdatedRows(DataBasedChatDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(updatedRows));
+                    result = (result + this._userTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -4660,11 +4743,11 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateInsertedRows(DataBasedChatDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(addedRows));
+                    result = (result + this._userTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -4742,11 +4825,11 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._usersTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._userTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.User.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._usersTableAdapter.Update(deletedRows));
+                    result = (result + this._userTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -4804,8 +4887,8 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
-            if (((this._usersTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._usersTableAdapter.Connection) == false))) {
+            if (((this._userTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._userTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
@@ -4873,13 +4956,13 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                         adaptersWithAcceptChangesDuringUpdate.Add(this._messedgesTableAdapter.Adapter);
                     }
                 }
-                if ((this._usersTableAdapter != null)) {
-                    revertConnections.Add(this._usersTableAdapter, this._usersTableAdapter.Connection);
-                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._usersTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._usersTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._usersTableAdapter.Adapter);
+                if ((this._userTableAdapter != null)) {
+                    revertConnections.Add(this._userTableAdapter, this._userTableAdapter.Connection);
+                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._userTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._userTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._userTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._userTableAdapter.Adapter);
                     }
                 }
                 if ((this._zayavkiTableAdapter != null)) {
@@ -4961,9 +5044,9 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     this._messedgesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._messedgesTableAdapter]));
                     this._messedgesTableAdapter.Transaction = null;
                 }
-                if ((this._usersTableAdapter != null)) {
-                    this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usersTableAdapter]));
-                    this._usersTableAdapter.Transaction = null;
+                if ((this._userTableAdapter != null)) {
+                    this._userTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._userTableAdapter]));
+                    this._userTableAdapter.Transaction = null;
                 }
                 if ((this._zayavkiTableAdapter != null)) {
                     this._zayavkiTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._zayavkiTableAdapter]));
