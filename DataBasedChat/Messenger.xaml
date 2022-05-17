@@ -5,17 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DataBasedChat"
         mc:Ignorable="d"
-        Title="Мессенджер" Height="450" Width="877">
+        Title="Мессенджер" Height="450" Width="887">
     <Grid Background="Gray">
         <Border BorderBrush="White" BorderThickness="1" Margin="5" CornerRadius="5" Background="DarkGray">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" >
                 <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
                     <TextBlock Text="Доступные чаты" TextAlignment="Center" FontSize="20"/>
-                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20"></ListView>
+                    <ListView x:Name="Chats" Width="200" Margin="10" FontSize="20" d:ItemsSource="{d:SampleData ItemCount=5}"></ListView>
                 </StackPanel>
-                <StackPanel VerticalAlignment="Stretch" Width="430">
-                    <TextBlock Text="" TextAlignment="Center" FontSize="20"/>
-                    <ListView x:Name="Chat" Width="490" Margin="10" FontSize="20"></ListView>
+                <StackPanel VerticalAlignment="Stretch" Width="430" Margin="5">
+                    <StackPanel>
+                        <TextBlock Text="Егор Миняев" TextAlignment="Center" FontSize="20"/>
+                        <ListView x:Name="Chat" Width="410" Margin="10" FontSize="20" d:ItemsSource="{d:SampleData ItemCount=5}"></ListView>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox Margin="5" Height="30" FontSize="20" MinWidth="400"/>
+                        <Button Content=">" Height="30" FontSize="20" BorderBrush="White"/>
+                    </StackPanel>
+                   
                 </StackPanel>
                 <StackPanel>
                     <Button Content="Просмотреть заявки" BorderBrush="White"  FontSize="20"/>
