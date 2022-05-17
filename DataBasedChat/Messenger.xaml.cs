@@ -34,5 +34,23 @@ namespace DataBasedChat
             this.Hide();
             a.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainWindow a = new MainWindow();
+            a.Top = this.Top;
+            a.Left = this.Left;
+            this.Hide();
+            a.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Zayavki a = new Zayavki(User);
+            a.Top = this.Top;
+            a.Left = this.Left;
+            this.Hide();
+            a.Show();
+        }
     }
 }
