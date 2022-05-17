@@ -28,6 +28,8 @@ namespace DataBasedChat {
         
         private FriendsDataTable tableFriends;
         
+        private MessedgesDataTable tableMessedges;
+        
         private UsersDataTable tableUsers;
         
         private ZayavkiDataTable tableZayavki;
@@ -39,6 +41,10 @@ namespace DataBasedChat {
         private global::System.Data.DataRelation relationFK_Friends_Users;
         
         private global::System.Data.DataRelation relationFK_Friends_Users1;
+        
+        private global::System.Data.DataRelation relationFK_Messedges_Chat;
+        
+        private global::System.Data.DataRelation relationFK_Messedges_Users;
         
         private global::System.Data.DataRelation relationFK_Zayavki_Users;
         
@@ -77,6 +83,9 @@ namespace DataBasedChat {
                 }
                 if ((ds.Tables["Friends"] != null)) {
                     base.Tables.Add(new FriendsDataTable(ds.Tables["Friends"]));
+                }
+                if ((ds.Tables["Messedges"] != null)) {
+                    base.Tables.Add(new MessedgesDataTable(ds.Tables["Messedges"]));
                 }
                 if ((ds.Tables["Users"] != null)) {
                     base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
@@ -119,6 +128,16 @@ namespace DataBasedChat {
         public FriendsDataTable Friends {
             get {
                 return this.tableFriends;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public MessedgesDataTable Messedges {
+            get {
+                return this.tableMessedges;
             }
         }
         
@@ -215,6 +234,9 @@ namespace DataBasedChat {
                 if ((ds.Tables["Friends"] != null)) {
                     base.Tables.Add(new FriendsDataTable(ds.Tables["Friends"]));
                 }
+                if ((ds.Tables["Messedges"] != null)) {
+                    base.Tables.Add(new MessedgesDataTable(ds.Tables["Messedges"]));
+                }
                 if ((ds.Tables["Users"] != null)) {
                     base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
                 }
@@ -266,6 +288,12 @@ namespace DataBasedChat {
                     this.tableFriends.InitVars();
                 }
             }
+            this.tableMessedges = ((MessedgesDataTable)(base.Tables["Messedges"]));
+            if ((initTable == true)) {
+                if ((this.tableMessedges != null)) {
+                    this.tableMessedges.InitVars();
+                }
+            }
             this.tableUsers = ((UsersDataTable)(base.Tables["Users"]));
             if ((initTable == true)) {
                 if ((this.tableUsers != null)) {
@@ -282,6 +310,8 @@ namespace DataBasedChat {
             this.relationFK_Chat_Users1 = this.Relations["FK_Chat_Users1"];
             this.relationFK_Friends_Users = this.Relations["FK_Friends_Users"];
             this.relationFK_Friends_Users1 = this.Relations["FK_Friends_Users1"];
+            this.relationFK_Messedges_Chat = this.Relations["FK_Messedges_Chat"];
+            this.relationFK_Messedges_Users = this.Relations["FK_Messedges_Users"];
             this.relationFK_Zayavki_Users = this.Relations["FK_Zayavki_Users"];
             this.relationFK_Zayavki_Users1 = this.Relations["FK_Zayavki_Users1"];
         }
@@ -298,6 +328,8 @@ namespace DataBasedChat {
             base.Tables.Add(this.tableChat);
             this.tableFriends = new FriendsDataTable();
             base.Tables.Add(this.tableFriends);
+            this.tableMessedges = new MessedgesDataTable();
+            base.Tables.Add(this.tableMessedges);
             this.tableUsers = new UsersDataTable();
             base.Tables.Add(this.tableUsers);
             this.tableZayavki = new ZayavkiDataTable();
@@ -318,6 +350,14 @@ namespace DataBasedChat {
                         this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableFriends.User_ID_who_have_itColumn}, false);
             this.Relations.Add(this.relationFK_Friends_Users1);
+            this.relationFK_Messedges_Chat = new global::System.Data.DataRelation("FK_Messedges_Chat", new global::System.Data.DataColumn[] {
+                        this.tableChat.ID_ChatColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMessedges.Chat_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Messedges_Chat);
+            this.relationFK_Messedges_Users = new global::System.Data.DataRelation("FK_Messedges_Users", new global::System.Data.DataColumn[] {
+                        this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
+                        this.tableMessedges.User_IDColumn}, false);
+            this.Relations.Add(this.relationFK_Messedges_Users);
             this.relationFK_Zayavki_Users = new global::System.Data.DataRelation("FK_Zayavki_Users", new global::System.Data.DataColumn[] {
                         this.tableUsers.ID_UserColumn}, new global::System.Data.DataColumn[] {
                         this.tableZayavki.User_ID_FromColumn}, false);
@@ -337,6 +377,12 @@ namespace DataBasedChat {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializeFriends() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializeMessedges() {
             return false;
         }
         
@@ -412,6 +458,9 @@ namespace DataBasedChat {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void FriendsRowChangeEventHandler(object sender, FriendsRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void MessedgesRowChangeEventHandler(object sender, MessedgesRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void UsersRowChangeEventHandler(object sender, UsersRowChangeEvent e);
@@ -975,6 +1024,335 @@ namespace DataBasedChat {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "FriendsDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class MessedgesDataTable : global::System.Data.TypedTableBase<MessedgesRow> {
+            
+            private global::System.Data.DataColumn columnID_Messedge;
+            
+            private global::System.Data.DataColumn columnTime;
+            
+            private global::System.Data.DataColumn columnUser_ID;
+            
+            private global::System.Data.DataColumn columnMessedge;
+            
+            private global::System.Data.DataColumn columnChat_ID;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesDataTable() {
+                this.TableName = "Messedges";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal MessedgesDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected MessedgesDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn ID_MessedgeColumn {
+                get {
+                    return this.columnID_Messedge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn TimeColumn {
+                get {
+                    return this.columnTime;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn User_IDColumn {
+                get {
+                    return this.columnUser_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn MessedgeColumn {
+                get {
+                    return this.columnMessedge;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn Chat_IDColumn {
+                get {
+                    return this.columnChat_ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow this[int index] {
+                get {
+                    return ((MessedgesRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MessedgesRowChangeEventHandler MessedgesRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MessedgesRowChangeEventHandler MessedgesRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MessedgesRowChangeEventHandler MessedgesRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event MessedgesRowChangeEventHandler MessedgesRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void AddMessedgesRow(MessedgesRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow AddMessedgesRow(System.TimeSpan Time, UsersRow parentUsersRowByFK_Messedges_Users, string Messedge, ChatRow parentChatRowByFK_Messedges_Chat) {
+                MessedgesRow rowMessedgesRow = ((MessedgesRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Time,
+                        null,
+                        Messedge,
+                        null};
+                if ((parentUsersRowByFK_Messedges_Users != null)) {
+                    columnValuesArray[2] = parentUsersRowByFK_Messedges_Users[0];
+                }
+                if ((parentChatRowByFK_Messedges_Chat != null)) {
+                    columnValuesArray[4] = parentChatRowByFK_Messedges_Chat[0];
+                }
+                rowMessedgesRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMessedgesRow);
+                return rowMessedgesRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow FindByID_Messedge(int ID_Messedge) {
+                return ((MessedgesRow)(this.Rows.Find(new object[] {
+                            ID_Messedge})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                MessedgesDataTable cln = ((MessedgesDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MessedgesDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columnID_Messedge = base.Columns["ID_Messedge"];
+                this.columnTime = base.Columns["Time"];
+                this.columnUser_ID = base.Columns["User_ID"];
+                this.columnMessedge = base.Columns["Messedge"];
+                this.columnChat_ID = base.Columns["Chat_ID"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columnID_Messedge = new global::System.Data.DataColumn("ID_Messedge", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_Messedge);
+                this.columnTime = new global::System.Data.DataColumn("Time", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTime);
+                this.columnUser_ID = new global::System.Data.DataColumn("User_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUser_ID);
+                this.columnMessedge = new global::System.Data.DataColumn("Messedge", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMessedge);
+                this.columnChat_ID = new global::System.Data.DataColumn("Chat_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnChat_ID);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID_Messedge}, true));
+                this.columnID_Messedge.AutoIncrement = true;
+                this.columnID_Messedge.AutoIncrementSeed = -1;
+                this.columnID_Messedge.AutoIncrementStep = -1;
+                this.columnID_Messedge.AllowDBNull = false;
+                this.columnID_Messedge.ReadOnly = true;
+                this.columnID_Messedge.Unique = true;
+                this.columnTime.AllowDBNull = false;
+                this.columnUser_ID.AllowDBNull = false;
+                this.columnMessedge.AllowDBNull = false;
+                this.columnMessedge.MaxLength = 100;
+                this.columnChat_ID.AllowDBNull = false;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow NewMessedgesRow() {
+                return ((MessedgesRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MessedgesRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(MessedgesRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MessedgesRowChanged != null)) {
+                    this.MessedgesRowChanged(this, new MessedgesRowChangeEvent(((MessedgesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MessedgesRowChanging != null)) {
+                    this.MessedgesRowChanging(this, new MessedgesRowChangeEvent(((MessedgesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MessedgesRowDeleted != null)) {
+                    this.MessedgesRowDeleted(this, new MessedgesRowChangeEvent(((MessedgesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MessedgesRowDeleting != null)) {
+                    this.MessedgesRowDeleting(this, new MessedgesRowChangeEvent(((MessedgesRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void RemoveMessedgesRow(MessedgesRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataBasedChatDataSet ds = new DataBasedChatDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MessedgesDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -1738,6 +2116,17 @@ namespace DataBasedChat {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Chat_Users1"]);
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow[] GetMessedgesRows() {
+                if ((this.Table.ChildRelations["FK_Messedges_Chat"] == null)) {
+                    return new MessedgesRow[0];
+                }
+                else {
+                    return ((MessedgesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Messedges_Chat"])));
+                }
+            }
         }
         
         /// <summary>
@@ -1806,6 +2195,98 @@ namespace DataBasedChat {
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_Friends_Users1"]);
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class MessedgesRow : global::System.Data.DataRow {
+            
+            private MessedgesDataTable tableMessedges;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal MessedgesRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMessedges = ((MessedgesDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int ID_Messedge {
+                get {
+                    return ((int)(this[this.tableMessedges.ID_MessedgeColumn]));
+                }
+                set {
+                    this[this.tableMessedges.ID_MessedgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public System.TimeSpan Time {
+                get {
+                    return ((global::System.TimeSpan)(this[this.tableMessedges.TimeColumn]));
+                }
+                set {
+                    this[this.tableMessedges.TimeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int User_ID {
+                get {
+                    return ((int)(this[this.tableMessedges.User_IDColumn]));
+                }
+                set {
+                    this[this.tableMessedges.User_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string Messedge {
+                get {
+                    return ((string)(this[this.tableMessedges.MessedgeColumn]));
+                }
+                set {
+                    this[this.tableMessedges.MessedgeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int Chat_ID {
+                get {
+                    return ((int)(this[this.tableMessedges.Chat_IDColumn]));
+                }
+                set {
+                    this[this.tableMessedges.Chat_IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public ChatRow ChatRow {
+                get {
+                    return ((ChatRow)(this.GetParentRow(this.Table.ParentRelations["FK_Messedges_Chat"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Messedges_Chat"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public UsersRow UsersRow {
+                get {
+                    return ((UsersRow)(this.GetParentRow(this.Table.ParentRelations["FK_Messedges_Users"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_Messedges_Users"]);
                 }
             }
         }
@@ -1931,6 +2412,17 @@ namespace DataBasedChat {
                 }
                 else {
                     return ((FriendsRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Friends_Users1"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow[] GetMessedgesRows() {
+                if ((this.Table.ChildRelations["FK_Messedges_Users"] == null)) {
+                    return new MessedgesRow[0];
+                }
+                else {
+                    return ((MessedgesRow[])(base.GetChildRows(this.Table.ChildRelations["FK_Messedges_Users"])));
                 }
             }
             
@@ -2092,6 +2584,40 @@ namespace DataBasedChat {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public FriendsRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class MessedgesRowChangeEvent : global::System.EventArgs {
+            
+            private MessedgesRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRowChangeEvent(MessedgesRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public MessedgesRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2791,6 +3317,352 @@ SELECT ID_Friends, User_ID_who_have_it, User_ID_user_in_friendship FROM Friends 
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(int User_ID_who_have_it, int User_ID_user_in_friendship, int Original_ID_Friends, int Original_User_ID_who_have_it, int Original_User_ID_user_in_friendship) {
             return this.Update(User_ID_who_have_it, User_ID_user_in_friendship, Original_ID_Friends, Original_User_ID_who_have_it, Original_User_ID_user_in_friendship, Original_ID_Friends);
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class MessedgesTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public MessedgesTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Messedges";
+            tableMapping.ColumnMappings.Add("ID_Messedge", "ID_Messedge");
+            tableMapping.ColumnMappings.Add("Time", "Time");
+            tableMapping.ColumnMappings.Add("User_ID", "User_ID");
+            tableMapping.ColumnMappings.Add("Messedge", "Messedge");
+            tableMapping.ColumnMappings.Add("Chat_ID", "Chat_ID");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Messedges] WHERE (([ID_Messedge] = @Original_ID_Messedge) AND " +
+                "([Time] = @Original_Time) AND ([User_ID] = @Original_User_ID) AND ([Messedge] = " +
+                "@Original_Messedge) AND ([Chat_ID] = @Original_Chat_ID))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Messedge", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Messedge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_User_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Messedge", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Messedge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Chat_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chat_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Messedges] ([Time], [User_ID], [Messedge], [Chat_ID]) VALUES (" +
+                "@Time, @User_ID, @Messedge, @Chat_ID);\r\nSELECT ID_Messedge, Time, User_ID, Messe" +
+                "dge, Chat_ID FROM Messedges WHERE (ID_Messedge = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@User_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Messedge", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Messedge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Chat_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chat_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Messedges] SET [Time] = @Time, [User_ID] = @User_ID, [Messedge] = @Messedge, [Chat_ID] = @Chat_ID WHERE (([ID_Messedge] = @Original_ID_Messedge) AND ([Time] = @Original_Time) AND ([User_ID] = @Original_User_ID) AND ([Messedge] = @Original_Messedge) AND ([Chat_ID] = @Original_Chat_ID));
+SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Messedge = @ID_Messedge)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@User_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Messedge", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Messedge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Chat_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chat_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID_Messedge", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Messedge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Time", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_User_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "User_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Messedge", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Messedge", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Chat_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Chat_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID_Messedge", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID_Messedge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::DataBasedChat.Properties.Settings.Default.DataBasedChatConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM dbo.Messedges";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataBasedChatDataSet.MessedgesDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataBasedChatDataSet.MessedgesDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            DataBasedChatDataSet.MessedgesDataTable dataTable = new DataBasedChatDataSet.MessedgesDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataBasedChatDataSet.MessedgesDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(DataBasedChatDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Messedges");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(int Original_ID_Messedge, System.TimeSpan Original_Time, int Original_User_ID, string Original_Messedge, int Original_Chat_ID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID_Messedge));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((System.TimeSpan)(Original_Time));
+            this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_User_ID));
+            if ((Original_Messedge == null)) {
+                throw new global::System.ArgumentNullException("Original_Messedge");
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((string)(Original_Messedge));
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(Original_Chat_ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(System.TimeSpan Time, int User_ID, string Messedge, int Chat_ID) {
+            this.Adapter.InsertCommand.Parameters[0].Value = ((System.TimeSpan)(Time));
+            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(User_ID));
+            if ((Messedge == null)) {
+                throw new global::System.ArgumentNullException("Messedge");
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Messedge));
+            }
+            this.Adapter.InsertCommand.Parameters[3].Value = ((int)(Chat_ID));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(System.TimeSpan Time, int User_ID, string Messedge, int Chat_ID, int Original_ID_Messedge, System.TimeSpan Original_Time, int Original_User_ID, string Original_Messedge, int Original_Chat_ID, int ID_Messedge) {
+            this.Adapter.UpdateCommand.Parameters[0].Value = ((System.TimeSpan)(Time));
+            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(User_ID));
+            if ((Messedge == null)) {
+                throw new global::System.ArgumentNullException("Messedge");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Messedge));
+            }
+            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Chat_ID));
+            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_ID_Messedge));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.TimeSpan)(Original_Time));
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_User_ID));
+            if ((Original_Messedge == null)) {
+                throw new global::System.ArgumentNullException("Original_Messedge");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_Messedge));
+            }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_Chat_ID));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(ID_Messedge));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(System.TimeSpan Time, int User_ID, string Messedge, int Chat_ID, int Original_ID_Messedge, System.TimeSpan Original_Time, int Original_User_ID, string Original_Messedge, int Original_Chat_ID) {
+            return this.Update(Time, User_ID, Messedge, Chat_ID, Original_ID_Messedge, Original_Time, Original_User_ID, Original_Messedge, Original_Chat_ID, Original_ID_Messedge);
         }
     }
     
@@ -3564,6 +4436,8 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
         
         private FriendsTableAdapter _friendsTableAdapter;
         
+        private MessedgesTableAdapter _messedgesTableAdapter;
+        
         private UsersTableAdapter _usersTableAdapter;
         
         private ZayavkiTableAdapter _zayavkiTableAdapter;
@@ -3608,6 +4482,20 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
             }
             set {
                 this._friendsTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public MessedgesTableAdapter MessedgesTableAdapter {
+            get {
+                return this._messedgesTableAdapter;
+            }
+            set {
+                this._messedgesTableAdapter = value;
             }
         }
         
@@ -3666,6 +4554,10 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                             && (this._friendsTableAdapter.Connection != null))) {
                     return this._friendsTableAdapter.Connection;
                 }
+                if (((this._messedgesTableAdapter != null) 
+                            && (this._messedgesTableAdapter.Connection != null))) {
+                    return this._messedgesTableAdapter.Connection;
+                }
                 if (((this._usersTableAdapter != null) 
                             && (this._usersTableAdapter.Connection != null))) {
                     return this._usersTableAdapter.Connection;
@@ -3691,6 +4583,9 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     count = (count + 1);
                 }
                 if ((this._friendsTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._messedgesTableAdapter != null)) {
                     count = (count + 1);
                 }
                 if ((this._usersTableAdapter != null)) {
@@ -3737,6 +4632,15 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._messedgesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Messedges.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._messedgesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._zayavkiTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Zayavki.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
@@ -3780,6 +4684,14 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._messedgesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Messedges.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._messedgesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._zayavkiTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Zayavki.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
@@ -3803,6 +4715,14 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._zayavkiTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._messedgesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Messedges.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._messedgesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -3879,6 +4799,11 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._messedgesTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._messedgesTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             if (((this._usersTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._usersTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
@@ -3937,6 +4862,15 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                     if (this._friendsTableAdapter.Adapter.AcceptChangesDuringUpdate) {
                         this._friendsTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
                         adaptersWithAcceptChangesDuringUpdate.Add(this._friendsTableAdapter.Adapter);
+                    }
+                }
+                if ((this._messedgesTableAdapter != null)) {
+                    revertConnections.Add(this._messedgesTableAdapter, this._messedgesTableAdapter.Connection);
+                    this._messedgesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._messedgesTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._messedgesTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._messedgesTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._messedgesTableAdapter.Adapter);
                     }
                 }
                 if ((this._usersTableAdapter != null)) {
@@ -4022,6 +4956,10 @@ SELECT ID_Zayavki, User_ID_From, User_ID_To, Date FROM Zayavki WHERE (ID_Zayavki
                 if ((this._friendsTableAdapter != null)) {
                     this._friendsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._friendsTableAdapter]));
                     this._friendsTableAdapter.Transaction = null;
+                }
+                if ((this._messedgesTableAdapter != null)) {
+                    this._messedgesTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._messedgesTableAdapter]));
+                    this._messedgesTableAdapter.Transaction = null;
                 }
                 if ((this._usersTableAdapter != null)) {
                     this._usersTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._usersTableAdapter]));
