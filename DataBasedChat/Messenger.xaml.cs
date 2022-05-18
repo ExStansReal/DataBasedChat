@@ -134,7 +134,48 @@ namespace DataBasedChat
 
         private void Chats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            WhoIsTalking.Text = $"Чат с: {Chats.SelectedItem.ToString()}";
+            try
+            {
+                WhoIsTalking.Text = $"Чат с: {Chats.SelectedItem.ToString()}";
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            if (Chats.SelectedItem != null)
+            {
+                new FriendsTableAdapter().DeleteQuery(FindIdFriends());
+                WhoIsTalking.Text = "";
+                Chats.SelectedItem = null;
+            }
+            else
+                MessageBox.Show("Сначала выберете друга, которого хотите удалить");
+        }
+
+        private int FindIdFriends()
+        {
+            DataGrid dataGrid = new DataGrid();
+            FriendsTableAdapter adapter = new FriendsTableAdapter();
+            DataBasedChatDataSet.FriendsDataTable table = new DataBasedChatDataSet.FriendsDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+
+            for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+            {
+                dataGrid.SelectedIndex = i;
+                int First_Id = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString());
+                int Second_Id = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString());
+                if (First_Id == User.Id && Second_Id == Friends[Chats.SelectedIndex].Id)
+                {
+                    return Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                }
+            }
+
+            return 0;
         }
     }
 }

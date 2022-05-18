@@ -43,6 +43,7 @@ namespace DataBasedChat
 
         private void GetZayavkiAlways(object sender, EventArgs e)
         {
+            
             DataGrid dataGrid = new DataGrid();
             ZayavkiTableAdapter adapter = new ZayavkiTableAdapter();
             DataBasedChatDataSet.ZayavkiDataTable table = new DataBasedChatDataSet.ZayavkiDataTable();
@@ -86,6 +87,7 @@ namespace DataBasedChat
 
                     }
                 }
+                Added = false;
             }
         }
 
@@ -147,15 +149,19 @@ namespace DataBasedChat
             Timer.Stop();
             Back();
         }
-
+        bool Added = false;
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            if (zayavki.SelectedItem != null)
+            if (zayavki.SelectedItem != null && Added == false)
             {
+                Added = true;
                 new FriendsTableAdapter().InsertQuery(User.Id, GetIdUser());
                 new FriendsTableAdapter().InsertQuery(GetIdUser(), User.Id);
+                new ChatTableAdapter().InsertQuery(User.Id, GetIdUser());
+                new ChatTableAdapter().InsertQuery(GetIdUser(), User.Id);
                 new ZayavkiTableAdapter().DeleteQuery(getIdZayavleniya());
                 MessageBox.Show("Друг добавлен");
+                oldCount++;
             }
             else
                 MessageBox.Show("Сначала выберете заявление");
