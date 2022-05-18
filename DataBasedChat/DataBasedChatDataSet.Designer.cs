@@ -3605,11 +3605,21 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM dbo.Messedges";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = "INSERT INTO [dbo].[Messedges] ([Time], [User_ID], [Messedge], [Chat_ID]) VALUES (" +
+                "@Time, @User_ID, @Messedge, @Chat_ID);\r\nSELECT ID_Messedge, Time, User_ID, Messe" +
+                "dge, Chat_ID FROM Messedges";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Time", global::System.Data.SqlDbType.Time, 5, global::System.Data.ParameterDirection.Input, 0, 0, "Time", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@User_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "User_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Messedge", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Messedge", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Chat_ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Chat_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3773,6 +3783,43 @@ SELECT ID_Messedge, Time, User_ID, Messedge, Chat_ID FROM Messedges WHERE (ID_Me
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(System.TimeSpan Time, int User_ID, string Messedge, int Chat_ID, int Original_ID_Messedge, System.TimeSpan Original_Time, int Original_User_ID, string Original_Messedge, int Original_Chat_ID) {
             return this.Update(Time, User_ID, Messedge, Chat_ID, Original_ID_Messedge, Original_Time, Original_User_ID, Original_Messedge, Original_Chat_ID, Original_ID_Messedge);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(string Time, int User_ID, string Messedge, int Chat_ID) {
+            global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
+            if ((Time == null)) {
+                throw new global::System.ArgumentNullException("Time");
+            }
+            else {
+                command.Parameters[0].Value = ((string)(Time));
+            }
+            command.Parameters[1].Value = ((int)(User_ID));
+            if ((Messedge == null)) {
+                throw new global::System.ArgumentNullException("Messedge");
+            }
+            else {
+                command.Parameters[2].Value = ((string)(Messedge));
+            }
+            command.Parameters[3].Value = ((int)(Chat_ID));
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
         }
     }
     

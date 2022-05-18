@@ -27,6 +27,9 @@ namespace DataBasedChat
         DispatcherTimer TimerF;
         int oldCountF = 0;
         int NewCountF = 0;
+        DispatcherTimer TimerC;
+        int oldCountC = 0;
+        int NewCountC = 0;
         public Messenger(User inToUser)
         {
             InitializeComponent();
@@ -36,6 +39,10 @@ namespace DataBasedChat
             TimerF.Interval = TimeSpan.FromSeconds(1);
             TimerF.Tick += GetFriends;
             TimerF.Start();
+
+            TimerC = new DispatcherTimer();
+            TimerC.Interval = TimeSpan.FromSeconds(1);
+            TimerC.Tick += LoadChatAlways;
         }
 
         List<User> Friends = new List<User>();
@@ -62,6 +69,10 @@ namespace DataBasedChat
                     if(idUser == User.Id)
                     { 
                         Chats.Items.Add(GetFioUser(Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString())));
+                    }
+                    if (Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString()) == User.Id)
+                    {
+                        Chats.Items.Add(GetFioUser(Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString())));
                     }
                 }
 
@@ -104,6 +115,7 @@ namespace DataBasedChat
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            TimerC.Stop();
             TimerF.Stop();
             FindFriends a = new FindFriends(User);
             a.Top = this.Top;
@@ -114,6 +126,7 @@ namespace DataBasedChat
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            TimerC.Stop();
             TimerF.Stop();
             MainWindow a = new MainWindow();
             a.Top = this.Top;
@@ -124,6 +137,7 @@ namespace DataBasedChat
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            TimerC.Stop();
             TimerF.Stop();
             Zayavki a = new Zayavki(User);
             a.Top = this.Top;
@@ -134,20 +148,158 @@ namespace DataBasedChat
 
         private void Chats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            TimerC.Stop();
             try
             {
+                if(Chats.SelectedItem != null)
                 WhoIsTalking.Text = $"Чат с: {Chats.SelectedItem.ToString()}";
             }
             catch
             {
 
             }
+
+            if (Chats.SelectedItem != null)
+            {
+                LoadChat();
+                TimerC.Start();
+            }
         }
+
+        private void LoadChatAlways(object sender, EventArgs e)
+        {
+           
+            ID_Chat = FindIDChat();
+            DataGrid dataGrid = new DataGrid();
+            MessedgesTableAdapter adapter = new MessedgesTableAdapter();
+            DataBasedChatDataSet.MessedgesDataTable table = new DataBasedChatDataSet.MessedgesDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+            NewCountC = dataGrid.Items.Count;
+            if (NewCountC != oldCountC)
+            {
+                Chat.Items.Clear();
+                oldCountC = NewCountC;
+                for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+                {
+                    dataGrid.SelectedIndex = i;
+
+                    int Chat_Id = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[4].ToString());
+
+                    if (Chat_Id == ID_Chat)
+                    {
+                        string fio = "";
+                        User user = FindUser(Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString()));
+                        if (user.Othcestvo == "" || String.IsNullOrWhiteSpace(user.Othcestvo))
+                            fio = user.Familiya + " " + user.Ima[0] + ". ";
+                        else
+                            fio = user.Familiya + " " + user.Ima[0] + ". " + user.Othcestvo[0] + ". ";
+
+                        string Messedge = $"[{(dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString()}] {fio}: {(dataGrid.SelectedItem as DataRowView).Row.ItemArray[3].ToString()}";
+
+                        Chat.Items.Add(Messedge);
+
+                        sendMes.IsEnabled = true;
+                    }
+                }
+            }
+        }
+
+        private void LoadChat()
+        {
+            Chat.Items.Clear();
+            ID_Chat = FindIDChat();
+            DataGrid dataGrid = new DataGrid();
+            MessedgesTableAdapter adapter = new MessedgesTableAdapter();
+            DataBasedChatDataSet.MessedgesDataTable table = new DataBasedChatDataSet.MessedgesDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+
+            for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+            {
+                dataGrid.SelectedIndex = i;
+
+                int Chat_Id = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[4].ToString());
+
+                if(Chat_Id == ID_Chat)
+                {
+                    string fio = "";
+                    User user = FindUser(Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString()));
+                    if (user.Othcestvo == "" || String.IsNullOrWhiteSpace(user.Othcestvo))
+                         fio = user.Familiya + " " + user.Ima[0] + ". ";
+                    else
+                     fio = user.Familiya + " " + user.Ima[0] + ". " + user.Othcestvo[0] + ". ";
+
+                    string Messedge = $"[{(dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString()}] {fio}: {(dataGrid.SelectedItem as DataRowView).Row.ItemArray[3].ToString()}";
+
+                    Chat.Items.Add(Messedge);
+                    sendMes.IsEnabled = true;
+                }
+            }
+        }
+        //DateTime.Now.ToString("HH:mm:ss")
+        private User FindUser(int ID_User)
+        {
+            User user = new User();
+            DataGrid dataGrid = new DataGrid();
+            UserTableAdapter adapter = new UserTableAdapter();
+            DataBasedChatDataSet.UserDataTable table = new DataBasedChatDataSet.UserDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+
+            for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+            {
+                dataGrid.SelectedIndex = i;
+                int user_ID = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                if(user_ID == ID_User)
+                {
+                    user.Id = user_ID;
+                    user.Familiya = (dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString();
+                    user.Ima = (dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString();
+                    user.Othcestvo = (dataGrid.SelectedItem as DataRowView).Row.ItemArray[3].ToString();
+                }
+
+
+            }
+
+
+            return user;
+        }
+        int ID_Chat = 0;
+        private int FindIDChat()
+        {
+
+            DataGrid dataGrid = new DataGrid();
+            ChatTableAdapter adapter = new ChatTableAdapter();
+            DataBasedChatDataSet.ChatDataTable table = new DataBasedChatDataSet.ChatDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+
+            for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+            {
+                dataGrid.SelectedIndex = i;
+                int firstID = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString());
+                int secondID = Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString());
+                if(firstID == User.Id && secondID == Friends[Chats.SelectedIndex].Id)
+                {
+                    return Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                }
+                if (firstID == Friends[Chats.SelectedIndex].Id && secondID == User.Id)
+                {
+                    return Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[0].ToString());
+                }
+            }
+            return 0;
+        }
+
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             if (Chats.SelectedItem != null)
             {
+                sendMes.IsEnabled = false;
+                TimerC.Stop();
+                Chat.Items.Clear();
                 new FriendsTableAdapter().DeleteQuery(FindIdFriends());
                 WhoIsTalking.Text = "";
                 Chats.SelectedItem = null;
@@ -176,6 +328,11 @@ namespace DataBasedChat
             }
 
             return 0;
+        }
+
+        private void sendMes_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

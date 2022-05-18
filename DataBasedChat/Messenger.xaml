@@ -21,7 +21,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                         <TextBox Margin="5" Height="30" FontSize="20" MinWidth="400"/>
-                        <Button Content=">" Height="30" FontSize="20" BorderBrush="White"/>
+                        <Button x:Name="sendMes" Content=">" Height="30" FontSize="20" BorderBrush="White" IsEnabled="False" Click="sendMes_Click"/>
                     </StackPanel>
                    
                 </StackPanel>

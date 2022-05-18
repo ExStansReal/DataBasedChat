@@ -155,16 +155,46 @@ namespace DataBasedChat
             if (zayavki.SelectedItem != null && Added == false)
             {
                 Added = true;
-                new FriendsTableAdapter().InsertQuery(User.Id, GetIdUser());
-                new FriendsTableAdapter().InsertQuery(GetIdUser(), User.Id);
-                new ChatTableAdapter().InsertQuery(User.Id, GetIdUser());
-                new ChatTableAdapter().InsertQuery(GetIdUser(), User.Id);
+                int AnotherUser = GetIdUser();
+                new FriendsTableAdapter().InsertQuery(User.Id, AnotherUser);
+                if (CheckForExistsChat(AnotherUser) == false)
+                {
+                    new ChatTableAdapter().InsertQuery(User.Id, AnotherUser);
+                }
                 new ZayavkiTableAdapter().DeleteQuery(getIdZayavleniya());
                 MessageBox.Show("Друг добавлен");
                 oldCount++;
             }
             else
                 MessageBox.Show("Сначала выберете заявление");
+        }
+        private bool CheckForExistsChat(int Another_ID)
+        {
+            DataGrid dataGrid = new DataGrid();
+            ChatTableAdapter adapter = new ChatTableAdapter();
+            DataBasedChatDataSet.ChatDataTable table = new DataBasedChatDataSet.ChatDataTable();
+            adapter.Fill(table);
+            dataGrid.ItemsSource = table;
+            for (int i = 0; i < dataGrid.Items.Count - 1; i++)
+            {
+                dataGrid.SelectedIndex = i;
+
+                int First_Id = (Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[1].ToString()));
+                int Second_Id = (Convert.ToInt32((dataGrid.SelectedItem as DataRowView).Row.ItemArray[2].ToString()));
+
+                if(First_Id == User.Id && Second_Id == Another_ID)
+                {
+                    return true;
+                }
+
+                if (First_Id == Another_ID && Second_Id == User.Id)
+                {
+                    return true;
+                }
+
+
+            }
+            return false;
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
