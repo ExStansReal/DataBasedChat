@@ -343,5 +343,16 @@ namespace DataBasedChat
             
 
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            TimerC.Stop();
+            TimerF.Stop();
+            Change_User a = new Change_User(User);
+            a.Top = this.Top;
+            a.Left = this.Left;
+            this.Hide();
+            a.Show();
+        }
     }
 }

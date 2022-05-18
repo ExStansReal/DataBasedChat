@@ -29,7 +29,7 @@
                     <Button Content="Просмотреть заявки" BorderBrush="White"  FontSize="20" Click="Button_Click_2"/>
                     <Button Content="Найти друзей" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click"/>
                     <Button Content="Удалить друга" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_3"/>
-                    <Button Content="Изменить данные" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_3"/>
+                    <Button Content="Изменить данные" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_4"/>
                     <Button Content="Назад" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_1"/>
                 </StackPanel>
 

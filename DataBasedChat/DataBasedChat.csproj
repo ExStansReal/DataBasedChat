@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Change_User.xaml.cs">
+      <DependentUpon>Change_User.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DataBasedChatDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,6 +76,10 @@
     <Compile Include="Zayavki.xaml.cs">
       <DependentUpon>Zayavki.xaml</DependentUpon>
     </Compile>
+    <Page Include="Change_User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FindFriends.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
