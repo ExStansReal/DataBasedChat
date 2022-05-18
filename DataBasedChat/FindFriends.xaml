@@ -16,6 +16,9 @@
                
                 <StackPanel Margin="5,0,5,0">
                     <Button Content="Отправить заявку" BorderBrush="White"  FontSize="20" Click="Button_Click_1"/>
+                    <TextBox x:Name="findFIO"  Margin="0,10,0,0" Height="30" FontSize="20"/>
+                    <Button Content="Поиск" BorderBrush="White" Margin="0,10,0,0" FontSize="20" Click="Button_Click_2"/>
+                    <Button Content="Обнулить поиск" BorderBrush="White" Margin="0,10,0,0" FontSize="20" Click="Button_Click_3"/>
                     <Button Content="Назад" BorderBrush="White" Margin="0,10,0,0" FontSize="20" Click="Button_Click"/>
                 </StackPanel>
             </StackPanel>

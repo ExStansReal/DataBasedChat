@@ -41,6 +41,7 @@ namespace DataBasedChat
             Timer.Start();
 
 
+
         }
         private void GetFirstPeople()
         {
@@ -225,6 +226,32 @@ namespace DataBasedChat
              }
             
             return false;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Timer.Stop();
+            List<String> listOfPeople = new List<string>();
+            foreach(var a in listPeople.Items)
+            {
+                listOfPeople.Add(a.ToString());
+            }
+            listPeople.Items.Clear();
+            for (int i = 0; i < listOfPeople.Count - 1; i++)
+            {
+                string findingPeople = listOfPeople[i];
+                if (findingPeople.Contains(findFIO.Text))
+                {
+                    listPeople.Items.Add(findingPeople);
+                }
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            oldCount++;
+            findFIO.Text = "";
+            Timer.Start();
         }
     }
 }

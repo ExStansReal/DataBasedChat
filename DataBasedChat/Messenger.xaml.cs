@@ -104,6 +104,7 @@ namespace DataBasedChat
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            TimerF.Stop();
             FindFriends a = new FindFriends(User);
             a.Top = this.Top;
             a.Left = this.Left;
@@ -113,6 +114,7 @@ namespace DataBasedChat
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            TimerF.Stop();
             MainWindow a = new MainWindow();
             a.Top = this.Top;
             a.Left = this.Left;
@@ -122,6 +124,7 @@ namespace DataBasedChat
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            TimerF.Stop();
             Zayavki a = new Zayavki(User);
             a.Top = this.Top;
             a.Left = this.Left;
