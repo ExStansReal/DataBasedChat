@@ -148,6 +148,7 @@ namespace DataBasedChat
 
         private void Chats_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
             TimerC.Stop();
             try
             {
@@ -161,6 +162,7 @@ namespace DataBasedChat
 
             if (Chats.SelectedItem != null)
             {
+                sendMes.IsEnabled = true;
                 LoadChat();
                 TimerC.Start();
             }
@@ -332,6 +334,13 @@ namespace DataBasedChat
 
         private void sendMes_Click(object sender, RoutedEventArgs e)
         {
+            if(!String.IsNullOrWhiteSpace(mes.Text))
+            {
+                new MessedgesTableAdapter().InsertQuery(Convert.ToString(DateTime.Now.ToString("HH:mm:ss")), User.Id, mes.Text, ID_Chat);
+                Chat.ScrollIntoView(Chat.Items[Chat.Items.Count - 1]);
+                mes.Text = null;
+            }
+            
 
         }
     }

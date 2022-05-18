@@ -16,11 +16,11 @@
                 <StackPanel VerticalAlignment="Stretch" Width="430" Margin="5">
                     <StackPanel>
                         <TextBlock x:Name="WhoIsTalking" Text="" TextAlignment="Center" FontSize="20"/>
-                        <ListView x:Name="Chat" Width="410" Margin="10,5,10,10" FontSize="20" MaxHeight="500" MinHeight="307"></ListView>
+                        <ListView x:Name="Chat" Width="410" Margin="10,5,10,10" FontSize="20" MaxHeight="307" MinHeight="307"></ListView>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                        <TextBox Margin="5" Height="30" FontSize="20" MinWidth="400"/>
+                        <TextBox x:Name="mes" Margin="5" Height="30" FontSize="20" MinWidth="400"/>
                         <Button x:Name="sendMes" Content=">" Height="30" FontSize="20" BorderBrush="White" IsEnabled="False" Click="sendMes_Click"/>
                     </StackPanel>
                    
@@ -29,6 +29,7 @@
                     <Button Content="Просмотреть заявки" BorderBrush="White"  FontSize="20" Click="Button_Click_2"/>
                     <Button Content="Найти друзей" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click"/>
                     <Button Content="Удалить друга" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_3"/>
+                    <Button Content="Изменить данные" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_3"/>
                     <Button Content="Назад" BorderBrush="White"  FontSize="20" Margin="0,10,0,0" Click="Button_Click_1"/>
                 </StackPanel>
 
