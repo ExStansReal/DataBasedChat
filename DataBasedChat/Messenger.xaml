@@ -16,7 +16,7 @@
                 <StackPanel VerticalAlignment="Stretch" Width="430" Margin="5">
                     <StackPanel>
                         <TextBlock x:Name="WhoIsTalking" Text="" TextAlignment="Center" FontSize="20"/>
-                        <ListView x:Name="Chat" Width="410" Margin="10,5,10,10" FontSize="20" MaxHeight="307" MinHeight="307"></ListView>
+                        <ListView x:Name="Chat" Width="410" MaxWidth="410" Margin="10,5,10,10" FontSize="20" MaxHeight="307" MinHeight="307"></ListView>
 
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,0">

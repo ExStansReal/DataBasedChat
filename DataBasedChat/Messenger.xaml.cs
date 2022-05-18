@@ -337,6 +337,7 @@ namespace DataBasedChat
             if(!String.IsNullOrWhiteSpace(mes.Text))
             {
                 new MessedgesTableAdapter().InsertQuery(Convert.ToString(DateTime.Now.ToString("HH:mm:ss")), User.Id, mes.Text, ID_Chat);
+                if(Chat.Items.Count != 0)
                 Chat.ScrollIntoView(Chat.Items[Chat.Items.Count - 1]);
                 mes.Text = null;
             }

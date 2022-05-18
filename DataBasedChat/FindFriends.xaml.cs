@@ -113,8 +113,13 @@ namespace DataBasedChat
                 {
                     if (CheckExistsFriend() == false)
                     {
-                        new ZayavkiTableAdapter().InsertQuery(User.Id, GetIdUser(), Convert.ToString(DateTime.Today));
-                        MessageBox.Show("Заявление отправлено");
+                        if (User.Id != GetIdUser())
+                        {
+                            new ZayavkiTableAdapter().InsertQuery(User.Id, GetIdUser(), Convert.ToString(DateTime.Today));
+                            MessageBox.Show("Заявление отправлено");
+                        }
+                        else
+                            MessageBox.Show("Вы не можете отправить себе заявку в друзья!");
                     }
                     else
                         MessageBox.Show("Вы уже в друзьях у этого человека");
