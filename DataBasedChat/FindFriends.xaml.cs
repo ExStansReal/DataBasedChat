@@ -242,7 +242,7 @@ namespace DataBasedChat
                 listOfPeople.Add(a.ToString());
             }
             listPeople.Items.Clear();
-            for (int i = 0; i < listOfPeople.Count - 1; i++)
+            for (int i = 0; i < listOfPeople.Count; i++)
             {
                 string findingPeople = listOfPeople[i];
                 if (findingPeople.Contains(findFIO.Text))
