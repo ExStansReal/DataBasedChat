@@ -14,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Configuration;
+using System.Data.SqlClient;
 
 namespace DataBasedChat
 {
@@ -34,6 +36,51 @@ namespace DataBasedChat
             a.Left = this.Left;
             this.Hide();
             a.Show();
+           
+
+            /*
+            //получение строки подключения
+            log.Text = ConfigurationManager.ConnectionStrings["DataBasedChat.Properties.Settings.DataBasedChatConnectionString"].ConnectionString;
+            //connectionString="Data Source=DESKTOP-PSEJFIA\SQLEXPRESS;Initial Catalog=DataBasedChat;Integrated Security=True"
+
+            //изменение строки подключения и при этом в самом файле типо ничё не меняется, но на самом деле меняется..
+            var config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            var connectionStringsSection = (ConnectionStringsSection)config.GetSection("connectionStrings");
+            connectionStringsSection.ConnectionStrings["DataBasedChat.Properties.Settings.DataBasedChatConnectionString"].ConnectionString = @"Data Source=DESKTOP-PSEJFIA\SQLEXPRESS;Initial Catalog=DataBasedChat;Integrated Security=True";
+            config.Save();
+            ConfigurationManager.RefreshSection("connectionStrings");
+
+            log_Copy.Text = ConfigurationManager.ConnectionStrings["DataBasedChat.Properties.Settings.DataBasedChatConnectionString"].ConnectionString;
+            */
+
+            ////выгрузка данных
+            ////есть проблема, нужно отключаться от БД полностью...
+            //using (SqlConnection conn
+            //    = new SqlConnection(@"Data Source=DESKTOP-PSEJFIA\SQLEXPRESS;Integrated Security=True"))
+            //{
+            //    conn.Open();
+            //    string command = "USE master " +
+            //    "RESTORE DATABASE DataBasedChat " +
+            //    @"FROM DISK = 'C:\VSSaves\DataBasedChat\DataBasedChat\bin\Debug\MyDB_Full.bak' " +
+            //    "WITH REPLACE";
+
+            //    SqlCommand cmd = new SqlCommand(command, conn);
+            //    cmd.ExecuteScalar();
+            //    conn.Close();
+            //}
+
+            /* //бэкап
+             using (SqlConnection conn
+                = new SqlConnection(@"Data Source=DESKTOP-PSEJFIA\SQLEXPRESS;Initial Catalog=DataBasedChat;Integrated Security=True"))
+             {
+                 conn.Open();
+                 string command = @"BACKUP DATABASE [DataBasedChat] TO DISK = 'C:\VSSaves\DataBasedChat\DataBasedChat\bin\Debug\MyDB_Full.bak'";
+
+                 SqlCommand cmd = new SqlCommand(command, conn);
+                 cmd.ExecuteScalar();
+
+             }
+            */
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
